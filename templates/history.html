@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Test History</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Mode</th>
+            <th>Download (Mbps)</th>
+            <th>Upload (Mbps)</th>
+            <th>Latency (ms)</th>
+            <th>Execution Time (s)</th>
+            <th>Timestamp</th>
+        </tr>
+
+        {% for row in records %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/" class="btn">Back</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performance Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Performance Comparison</h1>
+
+    <div class="card">
+        <h2>Naive Test</h2>
+        <p>Download: {{ compare.naive.download_speed }} Mbps</p>
+        <p>Upload: {{ compare.naive.upload_speed }} Mbps</p>
+        <p>Latency: {{ compare.naive.latency }} ms</p>
+        <p>Execution Time: {{ compare.naive.execution_time }} sec</p>
+    </div>
+
+    <div class="card">
+        <h2>Optimized Test</h2>
+        <p>Download: {{ compare.optimized.download_speed }} Mbps</p>
+        <p>Upload: {{ compare.optimized.upload_speed }} Mbps</p>
+        <p>Latency: {{ compare.optimized.latency }} ms</p>
+        <p>Execution Time: {{ compare.optimized.execution_time }} sec</p>
+    </div>
+
+    <div class="card">
+        <h2>Improvement</h2>
+        <p>Time saved: {{ compare.improvement }} sec</p>
+    </div>
+
+    <br>
+    <a href="/" class="btn">Back to Home</a>
+</div>
+</body>
+</html>

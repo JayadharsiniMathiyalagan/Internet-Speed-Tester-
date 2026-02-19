@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internet Speed Tester</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Internet Speed Tester</h1>
+
+    <div class="buttons">
+        <a href="/run_test/optimized" class="btn">Run Optimized Test</a>
+        <a href="/run_test/naive" class="btn secondary">Run Naive Test</a>
+        <a href="/compare" class="btn warning">Compare Performance</a>
+        <a href="/history" class="btn dark">View History</a>
+    </div>
+
+    {% if result %}
+        <div class="card">
+            <h2>Latest Result ({{ result.mode }})</h2>
+            <p>Download: {{ result.download_speed }} Mbps</p>
+            <p>Upload: {{ result.upload_speed }} Mbps</p>
+            <p>Latency: {{ result.latency }} ms</p>
+            <p>Execution Time: {{ result.execution_time }} sec</p>
+        </div>
+    {% endif %}
+
+    {% if naive and optimized %}
+        <div class="card">
+            <h2>Performance Comparison</h2>
+            <p>Naive Execution Time: {{ naive.execution_time }} sec</p>
+            <p>Optimized Execution Time: {{ optimized.execution_time }} sec</p>
+            <p>Improvement: {{ improvement }} sec</p>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
